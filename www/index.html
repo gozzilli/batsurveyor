@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Bat Surveyor</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+
+    <link href="css/index.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    
+    <script src="js/reporter.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+    
+    <div id="loading"></div>
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Bat Surveyor</h1>
+      </ion-header-bar>
+      <ion-content>
+        
+        <div class="content app" ng-controller="MainCtrl">
+        
+          <div>
+              <canvas id='dynamic_sonogram'></canvas>
+          </div>
+          <div>
+              <canvas id='amplitude' style="background-color: rgba(0,255,0,1);"></canvas>
+          </div>
+          
+          <ion-toggle
+                    ng-model="surveyToggle" 
+                    ng-checked="startSurvey()"
+                    toggle-class="toggle-balanced">
+          Survey
+        </ion-toggle>
+          
+          <div class="padding">
+            
+            <div id="timer">NOW</div>
+            
+            
+<!--            <div>
+              <a class="button button-dark" onclick="audioRecorder.startAudioRecorder();">Start Survey</a>
+              <a class="button button-dark" onclick="audioRecorder.stopAudioRecorder();" >Stop Survey </a>
+            </div>-->
+            
+            <div class="button-bar padding-top">
+              <a class="button" onclick="reporter.report('common');">Common Pip</a>
+              <a class="button" onclick="reporter.report('soprano');">Soprano Pip</a>
+            </div>
+            <div class="button-bar padding-top">
+              <a class="button" onclick="reporter.report('alcathoe');">Alcathoe</a>
+              <a class="button" onclick="reporter.report('longeared');">Long-eared</a>
+            </div>
+            <div class="button-bar padding-top">
+              <a class="button" onclick="reporter.report('bat');">Other bat</a>
+              <a class="button" onclick="reporter.report('animal');">Other animal</a>
+            </div>
+                      
+          </div>
+          
+          <hr>
+          
+          <div class="padded">
+            <pre id="log">System initialised.</pre>
+          </div>
+          
+          <!--<p>-->
+          <!--    <a href='#' class='btn' onClick='audioRecorder.startAudioRecorder();'>Start AudioRecorder</a>&nbsp;-->
+          <!--    <a href='#' class='btn' onClick='audioRecorder.stopAudioRecorder();'>Stop AudioRecorder</a>-->
+          <!--</p>-->
+          <!--<p>-->
+          <!--    <a href='#' class='btn' onClick='audioRecorder.startWhiteNoise();'>White Noise</a>&nbsp;-->
+          <!--    <a href='#' class='btn' onClick='audioRecorder.startHeterodyne();'>Heterodyne</a>&nbsp;-->
+          <!--    <a href='#' class='btn' onClick='audioRecorder.stopWhiteNoise();'>Silent</a>-->
+          <!--</p>-->
+          <!--<span id='frequency'>15000</span>-->
+          <!--<p>-->
+          <!--    <a href='#' class='btn' onClick='app.updateFrequency(-1000);'>Dec Frequency</a>&nbsp;-->
+          <!--    <a href='#' class='btn' onClick='app.updateFrequency(1000);'>Inc Frequency</a>-->
+          <!--</p>-->
+          <!--<p>-->
+          <!--    <a href='#' class='btn' onClick='app.captureRecording();'>Capture Recording</a>-->
+          <!--<p>-->
+          <!--<span id='filename'>---</span>-->
+<!--          <p>
+          <canvas id='sonogram' width='300px' height='80px'></canvas>
+          </p>-->
+          <!--<p>-->
+          <!--    <a href='index.html' class='btn'>BACK</a>-->
+          <!--<p>-->
+        </div>
+          
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/view.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('deviceready', app.initialize, false);
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
